@@ -22,6 +22,7 @@ public:
 	void take_a_random_turn(Player* player);
 	void update_turns_taken();
 	void set_player_number(int number);
+	void play_again_check();
 };
 
 #endif // CONTROLLER_H

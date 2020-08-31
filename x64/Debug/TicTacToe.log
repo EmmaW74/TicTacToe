@@ -4,5 +4,5 @@
   Render.cpp
   TicTacToe.cpp
   Generating Code...
-C:\Users\Owner\Github\TicTacToe\Grid.cpp(42,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Owner\Github\TicTacToe\Grid.cpp(38,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   TicTacToe.vcxproj -> C:\Users\Owner\Github\TicTacToe\x64\Debug\TicTacToe.exe

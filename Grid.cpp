@@ -11,11 +11,7 @@
 
 void Grid::reset_grid() {
 	//Sets all values on the grid to 0
-	   /*for (int i = 0; i < 3;i++){
-		   for (int j = 0; j < 3;j++){
-			   grid_array[i][j] = 0;
-		   }
-	   }*/
+	grid_vec.clear();
 	std::string setup{ "" };
 
 	char setup_row{ 'A' };

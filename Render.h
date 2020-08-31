@@ -16,6 +16,7 @@ public:
 	void congrats(Player* player);
 	void playing(Player* player);
 	void draw();
+	bool play_again();
 };
 
 

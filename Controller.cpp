@@ -4,6 +4,7 @@
 #include <Render.h>
 #include <Player.h>
 #include <windows.h>
+#include <vector>
 
 
 void Controller::set_player_number(int number) {
@@ -67,6 +68,7 @@ void Controller::take_a_random_turn(Player* player) {
 	if (game_board.check_for_win(player->XorO)) {
 		is_game_won = true;
 		congrats(player);
+		play_again_check();
 	}
 }
 
@@ -79,12 +81,23 @@ void Controller::take_a_turn(Player* player) {
 	if (game_board.check_for_win(player->XorO)) {
 		is_game_won = true;
 		congrats(player);
+		play_again_check();
 	}
 }
 
 void Controller::update_turns_taken() {
 	//counts number of turns taken so far
 	turns_taken++;
+}
+
+void Controller::play_again_check() {
+	if (play_again()) {
+		is_game_won = false;
+		turns_taken = 0;
+		player1_turn = true;
+		player_number = 0;
+		start_game();
+	}
 }
 
 Controller::Controller()

@@ -151,6 +151,26 @@ void Render::draw() {
 	std::cout << "It's a draw!!" << std::endl;
 }
 
+bool Render::play_again() {
+	//Prompt to play another game
+	std::cout << "Would you like to play again? Y / N" << std::endl;
+	std::string input{};
+	std::cin >> input;
+	std::string option = input.substr(0, 1);
+
+	std::string flush{}; // To clear cin before game restarts
+	std::getline(std::cin, flush); // To clear cin before game restarts
+
+	if (option == "Y" || option == "y") {
+		system("cls");
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+
 Render::~Render()
 {
 }
