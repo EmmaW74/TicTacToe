@@ -4,8 +4,8 @@
 #include <Render.h>
 #include <Player.h>
 
-Player::Player()
-{
+Player::Player() :
+	name{"Player"}, XorO{NULL}{
 }
 
 Player::Player(std::string name, int XorO) :
@@ -14,6 +14,10 @@ Player::Player(std::string name, int XorO) :
 }
 std::string Player::display_name() {
 	return name;
+}
+
+int Player::get_XorO() {
+	return XorO;
 }
 
 void Player::update_name(std::string new_name) {

@@ -6,13 +6,11 @@
 
 class Grid
 {
-	//    constexpr int def_size = 3;
-public:
 	std::vector<std::pair<std::string, int>> grid_vec{};
-
-	//char grid_array[3][3];
+public:
+		
 	~Grid();
-
+	std::vector<std::pair<std::string, int>> get_grid();
 	void reset_grid();
 	bool update_grid(int X_or_O, std::string turn);
 	bool check_for_win(int X_or_O);
