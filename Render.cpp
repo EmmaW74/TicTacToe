@@ -62,7 +62,7 @@ void Render::get_cell(Player* player, Grid& grid) {
 		std::regex check("[ABC][123]");
 
 		if (std::regex_match(turn, check)) {
-			if (grid.update_grid(player->XorO, turn)) {
+			if (grid.update_grid(player->get_XorO(), turn)) {
 				valid = 1;
 			}
 			else {
@@ -99,7 +99,8 @@ void Render::print_grid(Grid& game_board) {
 	//clear screen and draw latest grid state
 	system("cls");
 	print_header();
-	auto it = game_board.grid_vec.begin();
+	auto temp = game_board.get_grid();
+	auto it = temp.begin();
 
 	//header row
 	std::cout << std::setw(12) << " ";

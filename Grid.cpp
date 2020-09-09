@@ -9,6 +9,11 @@
 #include <vector>
 #include <string>
 
+
+std::vector<std::pair<std::string, int>> Grid::get_grid() {
+	return grid_vec;
+};
+
 void Grid::reset_grid() {
 	//Sets all values on the grid to 0
 	grid_vec.clear();

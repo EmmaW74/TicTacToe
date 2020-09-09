@@ -65,7 +65,7 @@ void Controller::take_a_random_turn(Player* player) {
 	player1_turn = !player1_turn;
 	update_turns_taken();
 	print_grid(game_board);
-	if (game_board.check_for_win(player->XorO)) {
+	if (game_board.check_for_win(player->get_XorO())) {
 		is_game_won = true;
 		congrats(player);
 		play_again_check();
@@ -78,7 +78,7 @@ void Controller::take_a_turn(Player* player) {
 	player1_turn = !player1_turn;
 	update_turns_taken();
 	print_grid(game_board);
-	if (game_board.check_for_win(player->XorO)) {
+	if (game_board.check_for_win(player->get_XorO())) {
 		is_game_won = true;
 		congrats(player);
 		play_again_check();
