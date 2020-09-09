@@ -6,7 +6,7 @@
 #include <windows.h>
 #include <vector>
 
-
+//branch test
 void Controller::set_player_number(int number) {
 	//Sets number of players in the game
 	player_number = number;
