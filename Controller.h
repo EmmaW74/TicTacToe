@@ -1,18 +1,22 @@
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
-#include <Grid.h>
-#include <Render.h>
-#include <Player.h>
+#include "Grid.h"
+#include "Render.h"
+#include "Input.h"
+#include "Player.h"
 
-class Controller : public Render
+class Controller
 {
 	bool player1_turn = true;
 	bool is_game_won = false;
-	Grid game_board;
+	Grid game_board{};
+	Render render{};
+	Input input{};
 	int turns_taken = 0;
 	int max_turns = 9;
 	int player_number = 0;
 public:
+	
 	Controller();
 	~Controller();
 

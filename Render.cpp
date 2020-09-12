@@ -24,29 +24,12 @@ std::string Render::request_name(Player* player) {
 }
 
 
-int Render::number_of_players() {
-	//Prompt for and return number of players (1 or 2)
-	std::string number{};
-	int valid = 0;
+void Render::number_of_players() {
+	//Prompt for number of players (1 or 2)
+	
 	std::cout << "Enter how many players:" << std::endl;
 	std::cout << "1 - Play against the computer" << std::endl;
 	std::cout << "2 - Play against a friend" << std::endl;
-
-	do {
-		std::cin >> number;
-		std::regex check("[12]");
-
-		if (std::regex_match(number, check)) {
-			valid = 1;
-		}
-		else {
-			std::cout << "Please enter 1 or 2: " << std::endl;
-		}
-	} while (valid == 0);
-
-	std::string flush{}; // To clear cin before request_name called 
-	std::getline(std::cin, flush); // To clear cin before request_name called 
-	return std::stoi(number);
 }
 
 

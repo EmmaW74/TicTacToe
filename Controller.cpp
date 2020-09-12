@@ -1,16 +1,19 @@
 #include<iostream>
-#include <Controller.h>
-#include <Grid.h>
-#include <Render.h>
-#include <Player.h>
-#include <windows.h>
+#include "Render.h"
+#include "Input.h"
+#include "Controller.h"
+#include "Input.h"
+#include "Player.h"
+#include "windows.h"
 #include <vector>
+#include <memory>
 
+Controller::Controller() {};
 
 void Controller::set_player_number(int number) {
 	//Sets number of players in the game
 	player_number = number;
-}
+};
 
 void Controller::start_game() {
 	//Initial settings for the game
@@ -19,28 +22,29 @@ void Controller::start_game() {
 	Player* player2 = new Player{ "Player 2",1 };
 
 	//Choose number of players and enter names
-	print_header();
-	set_player_number(number_of_players());
+	render.print_header();
+	render.number_of_players();
+	set_player_number(input.number_of_players());
 	//std::cout << "Player 1 - Enter your name" << std::endl;
-	player1->update_name(request_name(player1));
+	player1->update_name(input.request_name(player1));
 	if (player_number == 2) {
 		// std::cout << "Player 2 - Enter your name"  << std::endl;
-		player2->update_name(request_name(player2));
+		player2->update_name(input.request_name(player2));
 	}
 
 	//Create and print new grid
 	game_board.reset_grid();
-	print_grid(game_board);
+	render.print_grid(game_board);
 
 	//play the game
 	play_game(player1, player2);
-}
+};
 
 void Controller::play_game(Player* player1, Player* player2) {
 	//while game is in progress and max turns not yet taken, check who's turn it is then take the turn for that player
 	while (!is_game_won) {
 		if (turns_taken >= max_turns) {
-			draw();
+			render.draw();
 			break;
 		}
 		else if (player1_turn) {
@@ -59,28 +63,28 @@ void Controller::play_game(Player* player1, Player* player2) {
 }
 void Controller::take_a_random_turn(Player* player) {
 	//generates a random turn, refreshes grid and checks if game won yet
-	playing(player);
+	render.playing(player);
 	Sleep(3000);
 	game_board.random_turn(1);
 	player1_turn = !player1_turn;
 	update_turns_taken();
-	print_grid(game_board);
+	render.print_grid(game_board);
 	if (game_board.check_for_win(player->get_XorO())) {
 		is_game_won = true;
-		congrats(player);
+		render.congrats(player);
 		play_again_check();
 	}
 }
 
 void Controller::take_a_turn(Player* player) {
 	//controls the player's turn, refreshes grid and checks if game won yet
-	get_cell(player, game_board);
+	input.get_cell(player, game_board);
 	player1_turn = !player1_turn;
 	update_turns_taken();
-	print_grid(game_board);
+	render.print_grid(game_board);
 	if (game_board.check_for_win(player->get_XorO())) {
 		is_game_won = true;
-		congrats(player);
+		render.congrats(player);
 		play_again_check();
 	}
 }
@@ -91,17 +95,13 @@ void Controller::update_turns_taken() {
 }
 
 void Controller::play_again_check() {
-	if (play_again()) {
+	if (input.play_again()) {
 		is_game_won = false;
 		turns_taken = 0;
 		player1_turn = true;
 		player_number = 0;
 		start_game();
 	}
-}
-
-Controller::Controller()
-{
 }
 
 Controller::~Controller()
