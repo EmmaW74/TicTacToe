@@ -1,9 +1,13 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d26e9da5ed3a12aacd4a3fc8508ffce6abbec13d
 .vs/
 Debug/
 Release/
 x64/
 *.log
+<<<<<<< HEAD
 =======
 .vs/
 Debug/
@@ -11,3 +15,5 @@ Release/
 x64/
 *.log
 >>>>>>> interfaces
+=======
+>>>>>>> d26e9da5ed3a12aacd4a3fc8508ffce6abbec13d
