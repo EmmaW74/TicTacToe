@@ -1,0 +1,13 @@
+<<<<<<< HEAD
+.vs/
+Debug/
+Release/
+x64/
+*.log
+=======
+.vs/
+Debug/
+Release/
+x64/
+*.log
+>>>>>>> interfaces

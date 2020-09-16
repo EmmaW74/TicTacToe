@@ -24,55 +24,19 @@ std::string Render::request_name(Player* player) {
 }
 
 
-int Render::number_of_players() {
-	//Prompt for and return number of players (1 or 2)
-	std::string number{};
-	int valid = 0;
+void Render::number_of_players() {
+	//Prompt for number of players (1 or 2)
+	
 	std::cout << "Enter how many players:" << std::endl;
 	std::cout << "1 - Play against the computer" << std::endl;
 	std::cout << "2 - Play against a friend" << std::endl;
-
-	do {
-		std::cin >> number;
-		std::regex check("[12]");
-
-		if (std::regex_match(number, check)) {
-			valid = 1;
-		}
-		else {
-			std::cout << "Please enter 1 or 2: " << std::endl;
-		}
-	} while (valid == 0);
-
-	std::string flush{}; // To clear cin before request_name called 
-	std::getline(std::cin, flush); // To clear cin before request_name called 
-	return std::stoi(number);
 }
 
 
-void Render::get_cell(Player* player, Grid& grid) {
-	//requests a cell and updates the grid
-	int valid = 0;
-	std::cout << player->display_name() << ", please enter a blank cell, for example, A1: ";
-	do {
-		std::string input;
-		std::cin >> input;
-		std::string turn = input.substr(0, 2);
-		turn.at(0) = static_cast<char>(toupper(turn.at(0)));
-		std::regex check("[ABC][123]");
-
-		if (std::regex_match(turn, check)) {
-			if (grid.update_grid(player->get_XorO(), turn)) {
-				valid = 1;
-			}
-			else {
-				std::cout << "Please enter a blank cell: " << std::endl;
-			}
-		}
-		else {
-			std::cout << "Please enter a valid cell, for example, A1: " << std::endl;
-		}
-	} while (valid == 0);
+void Render::request_cell(std::string name) {
+	//requests a cell 	
+	std::cout << name << ", please enter a blank cell, for example, A1: ";
+	
 }
 
 char Render::showXorO(int X_or_O) {
@@ -139,13 +103,13 @@ void Render::print_grid(Grid& game_board) {
 	}
 }
 
-void Render::congrats(Player* player) {
-	std::cout << "Congratulations " << player->display_name() << std::endl;
+void Render::congrats(std::string name) {
+	std::cout << "Congratulations " << name << std::endl;
 	std::cout << "You win!!" << std::endl;
 }
 
-void Render::playing(Player* player) {
-	std::cout << player->display_name() << " is taking their turn..." << std::endl;
+void Render::playing(std::string name) {
+	std::cout << name << " is taking their turn..." << std::endl;
 }
 
 void Render::draw() {
