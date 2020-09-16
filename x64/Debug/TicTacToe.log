@@ -1,2 +1,12 @@
-﻿  UserPlayer.cpp
+﻿  Controller.cpp
+  Grid.cpp
+  Input.cpp
+  I_Player.cpp
+  Player.cpp
+  Render.cpp
+  TicTacToe.cpp
+  AIPlayer.cpp
+  UserPlayer.cpp
+  Generating Code...
+C:\Users\Owner\Github\TicTacToe\Grid.cpp(43,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   TicTacToe.vcxproj -> C:\Users\Owner\Github\TicTacToe\x64\Debug\TicTacToe.exe
