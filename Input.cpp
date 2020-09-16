@@ -3,12 +3,12 @@
 #include <regex>
 
 Input::Input() {};
-std::string Input::request_name(Player* player) {
+std::string Input::request_name(std::string name) {
 	//Prompt for and return player name
-	std::cout << player->display_name() << " - Enter your name" << std::endl;
-	std::string name{};
-	std::getline(std::cin, name);
-	return name;
+	std::cout << name << " - Enter your name" << std::endl;
+	std::string new_name{};
+	std::getline(std::cin, new_name);
+	return new_name;
 }
 
 int Input::number_of_players() {
@@ -34,10 +34,9 @@ int Input::number_of_players() {
 }
 
 
-void Input::get_cell(Player* player, Grid& grid) {
-	//requests a cell and updates the grid
+void Input::get_cell(int XorO, Grid& grid) {
+	//Gets cell and updates the grid
 	int valid = 0;
-	std::cout << player->display_name() << ", please enter a blank cell, for example, A1: ";
 	do {
 		std::string input;
 		std::cin >> input;
@@ -46,7 +45,7 @@ void Input::get_cell(Player* player, Grid& grid) {
 		std::regex check("[ABC][123]");
 
 		if (std::regex_match(turn, check)) {
-			if (grid.update_grid(player->get_XorO(), turn)) {
+			if (grid.update_grid(XorO, turn)) {
 				valid = 1;
 			}
 			else {

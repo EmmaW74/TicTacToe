@@ -33,29 +33,10 @@ void Render::number_of_players() {
 }
 
 
-void Render::get_cell(Player* player, Grid& grid) {
-	//requests a cell and updates the grid
-	int valid = 0;
-	std::cout << player->display_name() << ", please enter a blank cell, for example, A1: ";
-	do {
-		std::string input;
-		std::cin >> input;
-		std::string turn = input.substr(0, 2);
-		turn.at(0) = static_cast<char>(toupper(turn.at(0)));
-		std::regex check("[ABC][123]");
-
-		if (std::regex_match(turn, check)) {
-			if (grid.update_grid(player->get_XorO(), turn)) {
-				valid = 1;
-			}
-			else {
-				std::cout << "Please enter a blank cell: " << std::endl;
-			}
-		}
-		else {
-			std::cout << "Please enter a valid cell, for example, A1: " << std::endl;
-		}
-	} while (valid == 0);
+void Render::request_cell(std::string name) {
+	//requests a cell 	
+	std::cout << name << ", please enter a blank cell, for example, A1: ";
+	
 }
 
 char Render::showXorO(int X_or_O) {
@@ -122,13 +103,13 @@ void Render::print_grid(Grid& game_board) {
 	}
 }
 
-void Render::congrats(Player* player) {
-	std::cout << "Congratulations " << player->display_name() << std::endl;
+void Render::congrats(std::string name) {
+	std::cout << "Congratulations " << name << std::endl;
 	std::cout << "You win!!" << std::endl;
 }
 
-void Render::playing(Player* player) {
-	std::cout << player->display_name() << " is taking their turn..." << std::endl;
+void Render::playing(std::string name) {
+	std::cout << name << " is taking their turn..." << std::endl;
 }
 
 void Render::draw() {

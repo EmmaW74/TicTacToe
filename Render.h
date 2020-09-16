@@ -4,6 +4,9 @@
 #include <Player.h>
 class Render
 {
+	friend class UserPlayer;
+	friend class AIPlayer;
+
 public:
 	Render();
 	~Render();
@@ -11,10 +14,10 @@ public:
 	void print_grid(Grid& game_board);
 	std::string request_name(Player* player);
 	void number_of_players();
-	void get_cell(Player* player, Grid& grid);
+	void request_cell(std::string name);
 	char showXorO(int X_or_O);
-	void congrats(Player* player);
-	void playing(Player* player);
+	void congrats(std::string name);
+	void playing(std::string name);
 	void draw();
 	bool play_again();
 };
