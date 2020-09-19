@@ -16,7 +16,7 @@ public:
 	int get_XorO() override;
 	std::string display_name() override;
 	virtual void update_name(std::string new_name) override;
-	virtual void take_turn(Grid& game_board, Input& input_object, Render& render_object) override;
+	virtual void take_turn(Grid& game_board, std::shared_ptr <Input> input_object, std::shared_ptr <Render> render_object) override;
 	
 	~UserPlayer();
 };

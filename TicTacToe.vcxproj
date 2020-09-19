@@ -160,6 +160,7 @@
     <ClCompile Include="I_Player.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Render.cpp" />
+    <ClCompile Include="BuildGame.cpp" />
     <ClCompile Include="TicTacToe.cpp" />
     <ClCompile Include="AIPlayer.cpp" />
     <ClCompile Include="UserPlayer.cpp" />
@@ -172,6 +173,7 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="Render.h" />
     <ClInclude Include="AIPlayer.h" />
+    <ClInclude Include="BuildGame.h" />
     <ClInclude Include="UserPlayer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

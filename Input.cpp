@@ -12,7 +12,7 @@ std::string Input::request_name(std::string name) {
 }
 
 int Input::number_of_players() {
-	//Get and return number of players (1 or 2)
+	//Get and return number of players (1 or 2) MOVING TO STARTGAME
 	std::string number{};
 	int valid = 0;
 	

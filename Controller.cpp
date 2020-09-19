@@ -14,12 +14,17 @@
 
 Controller::Controller() {};
 
+Controller::Controller(std::shared_ptr<Render> render_object, std::shared_ptr<Input> input_object, std::shared_ptr<I_Player> player1, std::shared_ptr<I_Player> player2, int player_number):
+render_object(render_object),input_object(input_object),player1(player1),player2(player2), player_number(player_number){};
+
+
 void Controller::set_player_number(int number) {
 	//Sets number of players in the game
 	player_number = number;
 };
 
 void Controller::start_game() {
+	/*
 	//Initial settings for the game
 	//Choose number of players 
 	render_object.print_header();
@@ -41,21 +46,30 @@ void Controller::start_game() {
 	else {
 		player2 = std::make_shared<AIPlayer>("AI Player 2", 1);
 	}
-
+	*/
+	if (player_number == 2) {
+		player1->update_name(input_object->request_name(player1->display_name()));
+		player2->update_name(input_object->request_name((*player2).display_name()));
+	}
+	else {
+		player1->update_name(input_object->request_name(player1->display_name()));
+	}
 
 	//play the game
-	play_game(player1, player2);
+	//play_game(player1, player2);
+	play_game();
 };
 
-void Controller::play_game(std::shared_ptr<I_Player> player1, std::shared_ptr<I_Player> player2) {
+//void Controller::play_game(std::shared_ptr<I_Player> player1, std::shared_ptr<I_Player> player2) {
+void Controller::play_game(){
 	//Create and print new grid
 	game_board.reset_grid();
-	render_object.print_grid(game_board);
+	render_object->print_grid(game_board);
 	//while game is in progress and max turns not yet taken, check who's turn it is then take the turn for that player
 	
 	while (!is_game_won) {
 		if (turns_taken >= max_turns) {
-			render_object.draw();
+			render_object->draw();
 			play_again_check();
 		}
 		else if (player1_turn) {
@@ -66,19 +80,21 @@ void Controller::play_game(std::shared_ptr<I_Player> player1, std::shared_ptr<I_
 		}
 		update_turns_taken();
 		player1_turn = !player1_turn;
-		render_object.print_grid(game_board);
+		render_object->print_grid(game_board);
 		if (game_board.check_for_win(player1->get_XorO())) {
 			is_game_won = true;
-			render_object.congrats(player1->display_name());
+			render_object->congrats(player1->display_name());
 			if (play_again_check()) {
-				play_game(player1,player2);
+				//play_game(player1,player2);
+				play_game();
 			};
 		}
 		else if (game_board.check_for_win(player2->get_XorO())) {
 			is_game_won = true;
-			render_object.congrats(player2->display_name());
+			render_object->congrats(player2->display_name());
 			if (play_again_check()) {
-				play_game(player1, player2);
+				//play_game(player1, player2);
+				play_game();
 			}
 		}
 	}
@@ -90,7 +106,7 @@ void Controller::update_turns_taken() {
 }
 
 bool Controller::play_again_check() {
-	if (input_object.play_again()) {
+	if (input_object->play_again()) {
 		is_game_won = false;
 		turns_taken = 0;
 		player1_turn = true;

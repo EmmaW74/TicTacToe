@@ -25,9 +25,9 @@ std::string AIPlayer::display_name() {
 	return name;
 }
 
-void AIPlayer::take_turn(Grid& game_board, Input& input_object, Render& render_object) {
+void AIPlayer::take_turn(Grid& game_board, std::shared_ptr <Input> input_object, std::shared_ptr <Render> render_object) {
 	//Computer takes a random turn
-	render_object.playing(name);
+	render_object->playing(name);
 	Sleep(3000);
 	game_board.random_turn(1);
 	

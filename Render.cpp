@@ -25,7 +25,7 @@ std::string Render::request_name(Player* player) {
 
 
 void Render::number_of_players() {
-	//Prompt for number of players (1 or 2)
+	//Prompt for number of players (1 or 2) MOVING TO STARTGAME
 	
 	std::cout << "Enter how many players:" << std::endl;
 	std::cout << "1 - Play against the computer" << std::endl;
