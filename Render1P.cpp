@@ -1,65 +1,24 @@
-#include "Render.h"
-#include "Grid.h"
-#include "Controller.h"
-#include "Player.h"
-#include <iostream>
-#include <stdlib.h>
-#include <regex>
-#include <iomanip>
-#include <limits>
-#include <istream>
-
-Render::Render() {
-
-}
-
-/*
-std::string Render::request_name(Player* player) {
-	//Prompt for and return player name
-	std::cout << player->display_name() << " - Enter your name" << std::endl;
-	std::string name{};
-	std::getline(std::cin, name);
-
-	return name;
-}
+#include "Render1P.h"
+#include<iostream>
 
 
-void Render::number_of_players() {
-	//Prompt for number of players (1 or 2) MOVING TO STARTGAME
-	
-	std::cout << "Enter how many players:" << std::endl;
-	std::cout << "1 - Play against the computer" << std::endl;
-	std::cout << "2 - Play against a friend" << std::endl;
-}
-*/
+Render1P::Render1P() {
 
-void Render::request_cell(std::string name) {
-	//requests a cell 	
-	std::cout << name << ", please enter a blank cell, for example, A1: ";
-	
-}
+};
 
-char Render::showXorO(int X_or_O) {
-	//Display array value as X, O or blank (for grid display)
-	if (X_or_O == -1) {
-		return 'X';
-	}
-	else if (X_or_O == 1) {
-		return 'O';
-	}
-	else {
-		return ' ';
-	}
-}
+void Render1P::playing(std::string name) {
+	std::cout << name << " is taking their turn..." << std::endl;
+};
 
-void Render::print_header() {
+vvoid playing(std::string name) override;
+void Render1P::print_header() {
 
 	std::cout << std::setw(16) << " " << "  ******************" << std::endl << std::endl;
 	std::cout << std::setw(16) << " " << "  *   TIC TAC TOE  *" << std::endl << std::endl;
 	std::cout << std::setw(16) << " " << "  ******************" << std::endl << std::endl;
 }
 
-void Render::print_grid(Grid& game_board) {
+void Render1P::print_grid(Grid& game_board) {
 	//clear screen and draw latest grid state
 	system("cls");
 	print_header();
@@ -102,22 +61,48 @@ void Render::print_grid(Grid& game_board) {
 		std::cout << std::setw(16) << " " << std::setw(24) << std::setfill('-') << "-" << std::setfill(' ') << std::endl;
 	}
 }
+void Render1P::playing(std::string name) {
+	std::cout << name << " is taking their turn..." << std::endl;
+}
 
-void Render::congrats(std::string name) {
+std::string Render1P::request_name(std::shared_ptr<I_Player> player) {
+	//Prompt for and return player name
+	std::cout << player->display_name() << " - Enter your name" << std::endl;
+	std::string name{};
+	std::getline(std::cin, name);
+
+	return name;
+}
+
+void Render1P::request_cell(std::string name) {
+	//requests a cell 	
+	std::cout << name << ", please enter a blank cell, for example, A1: ";
+
+}
+
+char Render1P::showXorO(int X_or_O) {
+	//Display array value as X, O or blank (for grid display)
+	if (X_or_O == -1) {
+		return 'X';
+	}
+	else if (X_or_O == 1) {
+		return 'O';
+	}
+	else {
+		return ' ';
+	}
+}
+
+void Render1P::congrats(std::string name) {
 	std::cout << "Congratulations " << name << std::endl;
 	std::cout << "You win!!" << std::endl;
 }
-/*
-void Render::playing(std::string name) {
-	std::cout << name << " is taking their turn..." << std::endl;
-}
-*/
 
-void Render::draw() {
+void Render1P::draw() {
 	std::cout << "It's a draw!!" << std::endl;
 }
-/*
-bool Render::play_again() {
+
+bool Render1P::play_again() {
 	//Prompt to play another game
 	std::cout << "Would you like to play again? Y / N" << std::endl;
 	std::string input{};
@@ -135,10 +120,9 @@ bool Render::play_again() {
 		return false;
 	}
 }
-*/
+};
 
-Render::~Render()
+Render1P::~Render1P()
 {
-} 
-
+};
 

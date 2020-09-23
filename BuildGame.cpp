@@ -35,8 +35,8 @@ void BuildGame::create_game() {
 	no_of_players = get_no_of_players();
 	if (no_of_players == 2) {
 		//initialise objects for 2 player game
-		render_object = std::make_shared<Render>();
-		input_object = std::make_shared<Input>();
+		render_object = std::make_shared<Render2P>();
+		input_object = std::make_shared<Input2P>();
 		player1 = std::make_shared<UserPlayer>("Player 1", -1);
 		player2 = std::make_shared<UserPlayer>("Player 2", 1);
 	}

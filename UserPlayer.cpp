@@ -23,7 +23,7 @@ std::string UserPlayer::display_name() {
 	return name;
 }
 
-void UserPlayer::take_turn(Grid& game_board, std::shared_ptr <Input> input_object, std::shared_ptr <Render> render_object) {
+void UserPlayer::take_turn(Grid& game_board, std::shared_ptr <I_Input> input_object, std::shared_ptr <I_Render> render_object) {
 	
 	render_object->request_cell(name);
 	input_object->get_cell(XorO, game_board);

@@ -17,6 +17,7 @@ void AIPlayer::update_name(std::string new_name) {
 	name = new_name;
 };
 
+
 int AIPlayer::get_XorO() {
 	return XorO;
 };
@@ -25,7 +26,7 @@ std::string AIPlayer::display_name() {
 	return name;
 }
 
-void AIPlayer::take_turn(Grid& game_board, std::shared_ptr <Input> input_object, std::shared_ptr <Render> render_object) {
+void AIPlayer::take_turn(Grid& game_board, std::shared_ptr <I_Input> input_object, std::shared_ptr <I_Render> render_object) {
 	//Computer takes a random turn
 	render_object->playing(name);
 	Sleep(3000);

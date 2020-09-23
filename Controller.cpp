@@ -14,14 +14,15 @@
 
 Controller::Controller() {};
 
-Controller::Controller(std::shared_ptr<Render> render_object, std::shared_ptr<Input> input_object, std::shared_ptr<I_Player> player1, std::shared_ptr<I_Player> player2, int player_number):
+Controller::Controller(std::shared_ptr<I_Render> render_object, std::shared_ptr<I_Input> input_object, std::shared_ptr<I_Player> player1, std::shared_ptr<I_Player> player2, int player_number):
 render_object(render_object),input_object(input_object),player1(player1),player2(player2), player_number(player_number){};
 
-
+/*
 void Controller::set_player_number(int number) {
 	//Sets number of players in the game
 	player_number = number;
 };
+*/
 
 void Controller::start_game() {
 	/*

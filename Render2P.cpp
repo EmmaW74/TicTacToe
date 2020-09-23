@@ -1,4 +1,4 @@
-#include "Render.h"
+#include "Render2P.h"
 #include "Grid.h"
 #include "Controller.h"
 #include "Player.h"
@@ -9,14 +9,14 @@
 #include <limits>
 #include <istream>
 
-Render::Render() {
+Render2P::Render2P() {
 
 }
 
 /*
-std::string Render::request_name(Player* player) {
+std::string Render2P::request_name(Player* player) {
 	//Prompt for and return player name
-	std::cout << player->display_name() << " - Enter your name" << std::endl;
+	std::cout << player->display_name() << " - Enter your name (2P)" << std::endl;
 	std::string name{};
 	std::getline(std::cin, name);
 
@@ -24,22 +24,22 @@ std::string Render::request_name(Player* player) {
 }
 
 
-void Render::number_of_players() {
+void Render2P::number_of_players() {
 	//Prompt for number of players (1 or 2) MOVING TO STARTGAME
-	
+
 	std::cout << "Enter how many players:" << std::endl;
 	std::cout << "1 - Play against the computer" << std::endl;
 	std::cout << "2 - Play against a friend" << std::endl;
 }
 */
 
-void Render::request_cell(std::string name) {
+void Render2P::request_cell(std::string name) {
 	//requests a cell 	
 	std::cout << name << ", please enter a blank cell, for example, A1: ";
-	
+
 }
 
-char Render::showXorO(int X_or_O) {
+char Render2P::showXorO(int X_or_O) {
 	//Display array value as X, O or blank (for grid display)
 	if (X_or_O == -1) {
 		return 'X';
@@ -52,14 +52,14 @@ char Render::showXorO(int X_or_O) {
 	}
 }
 
-void Render::print_header() {
+void Render2P::print_header() {
 
 	std::cout << std::setw(16) << " " << "  ******************" << std::endl << std::endl;
 	std::cout << std::setw(16) << " " << "  *   TIC TAC TOE  *" << std::endl << std::endl;
 	std::cout << std::setw(16) << " " << "  ******************" << std::endl << std::endl;
 }
 
-void Render::print_grid(Grid& game_board) {
+void Render2P::print_grid(Grid& game_board) {
 	//clear screen and draw latest grid state
 	system("cls");
 	print_header();
@@ -103,21 +103,20 @@ void Render::print_grid(Grid& game_board) {
 	}
 }
 
-void Render::congrats(std::string name) {
+void Render2P::congrats(std::string name) {
 	std::cout << "Congratulations " << name << std::endl;
 	std::cout << "You win!!" << std::endl;
 }
-/*
-void Render::playing(std::string name) {
+
+void Render2P::playing(std::string name) {
 	std::cout << name << " is taking their turn..." << std::endl;
 }
-*/
 
-void Render::draw() {
+void Render2P::draw() {
 	std::cout << "It's a draw!!" << std::endl;
 }
 /*
-bool Render::play_again() {
+bool Render2P::play_again() {
 	//Prompt to play another game
 	std::cout << "Would you like to play again? Y / N" << std::endl;
 	std::string input{};
@@ -137,8 +136,6 @@ bool Render::play_again() {
 }
 */
 
-Render::~Render()
+Render2P::~Render2P()
 {
-} 
-
-
+}

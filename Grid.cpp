@@ -1,6 +1,6 @@
 #include <Controller.h>
 #include <Grid.h>
-#include <Render.h>
+#include <I_Render.h>
 #include <Player.h>
 #include <iostream>
 #include <cstdlib>
