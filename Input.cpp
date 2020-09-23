@@ -1,14 +1,30 @@
 #include "Input.h"
 #include <iostream>
 #include <regex>
+#include "Windows.h"
 
-Input::Input() {};
+Input::Input() {
+}
+
 std::string Input::request_name(std::string name) {
-
 	//Prompt for and return player name
 	std::cout << name << " - Enter your name" << std::endl;
 	std::string new_name{};
 	std::getline(std::cin, new_name);
+	return new_name;
+}
+
+std::string Input::random_name(std::string name) {
+	//Generate random name and check it's different to Player 1's name
+	std::string new_name{ name };
+	std::vector<std::string> name_list{ "Fred","James","Harry","George","Henry","Lucy","Jane","Jill","Joanne","Clare" };
+	srand(time(0));
+	do {
+		new_name = name_list.at(rand() % 10);
+	} while (new_name == name);
+
+	std::cout << "Today you're playing against " << new_name << std::endl;
+	Sleep(3000);
 	return new_name;
 }
 
@@ -35,6 +51,7 @@ void Input::get_cell(int XorO, Grid& grid) {
 		}
 	} while (valid == 0);
 }
+
 bool Input::play_again() {
 	//Prompt to play another game
 	std::cout << "Would you like to play again? Y / N" << std::endl;
@@ -53,4 +70,6 @@ bool Input::play_again() {
 		return false;
 	}
 }
-Input::~Input() {};
+
+Input::~Input() {
+}

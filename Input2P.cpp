@@ -2,7 +2,9 @@
 #include <iostream>
 #include <regex>
 
-Input2P::Input2P() {};
+Input2P::Input2P() {
+}
+
 std::string Input2P::request_name(std::string name) {
 	//Prompt for and return player name
 	std::cout << name << " - Enter your name" << std::endl;
@@ -10,7 +12,6 @@ std::string Input2P::request_name(std::string name) {
 	std::getline(std::cin, new_name);
 	return new_name;
 }
-
 
 void Input2P::get_cell(int XorO, Grid& grid) {
 	//Gets cell and updates the grid
@@ -35,6 +36,7 @@ void Input2P::get_cell(int XorO, Grid& grid) {
 		}
 	} while (valid == 0);
 }
+
 bool Input2P::play_again() {
 	//Prompt to play another game
 	std::cout << "Would you like to play again? Y / N" << std::endl;
@@ -53,4 +55,6 @@ bool Input2P::play_again() {
 		return false;
 	}
 }
-Input2P::~Input2P() {};
+
+Input2P::~Input2P() {
+}

@@ -13,30 +13,9 @@ Render::Render() {
 
 }
 
-/*
-std::string Render::request_name(Player* player) {
-	//Prompt for and return player name
-	std::cout << player->display_name() << " - Enter your name" << std::endl;
-	std::string name{};
-	std::getline(std::cin, name);
-
-	return name;
-}
-
-
-void Render::number_of_players() {
-	//Prompt for number of players (1 or 2) MOVING TO STARTGAME
-	
-	std::cout << "Enter how many players:" << std::endl;
-	std::cout << "1 - Play against the computer" << std::endl;
-	std::cout << "2 - Play against a friend" << std::endl;
-}
-*/
-
 void Render::request_cell(std::string name) {
 	//requests a cell 	
 	std::cout << name << ", please enter a blank cell, for example, A1: ";
-	
 }
 
 char Render::showXorO(int X_or_O) {
@@ -107,35 +86,10 @@ void Render::congrats(std::string name) {
 	std::cout << "Congratulations " << name << std::endl;
 	std::cout << "You win!!" << std::endl;
 }
-/*
-void Render::playing(std::string name) {
-	std::cout << name << " is taking their turn..." << std::endl;
-}
-*/
 
 void Render::draw() {
 	std::cout << "It's a draw!!" << std::endl;
 }
-/*
-bool Render::play_again() {
-	//Prompt to play another game
-	std::cout << "Would you like to play again? Y / N" << std::endl;
-	std::string input{};
-	std::cin >> input;
-	std::string option = input.substr(0, 1);
-
-	std::string flush{}; // To clear cin before game restarts
-	std::getline(std::cin, flush); // To clear cin before game restarts
-
-	if (option == "Y" || option == "y") {
-		system("cls");
-		return true;
-	}
-	else {
-		return false;
-	}
-}
-*/
 
 Render::~Render()
 {

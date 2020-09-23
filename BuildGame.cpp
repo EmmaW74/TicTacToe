@@ -1,11 +1,13 @@
 #include "BuildGame.h"
 #include <regex>
+#include <iomanip>
 
-BuildGame::BuildGame() {};
+BuildGame::BuildGame() {
+}
 
 int BuildGame::get_no_of_players() {
 	//Prompt for number of players (1 or 2)
-
+	print_header1();
 	std::cout << "Enter how many players:" << std::endl;
 	std::cout << "1 - Play against the computer" << std::endl;
 	std::cout << "2 - Play against a friend" << std::endl;
@@ -29,9 +31,16 @@ int BuildGame::get_no_of_players() {
 	std::string flush{}; // To clear cin before request_name called 
 	std::getline(std::cin, flush); // To clear cin before request_name called 
 	return std::stoi(number);
-};
+}
+
+void BuildGame::print_header1() {
+	std::cout << std::setw(16) << " " << "  ******************" << std::endl << std::endl;
+	std::cout << std::setw(16) << " " << "  *   TIC TAC TOE  *" << std::endl << std::endl;
+	std::cout << std::setw(16) << " " << "  ******************" << std::endl << std::endl;
+}
 
 void BuildGame::create_game() {
+
 	no_of_players = get_no_of_players();
 	if (no_of_players == 2) {
 		//initialise objects for 2 player game
@@ -48,11 +57,13 @@ void BuildGame::create_game() {
 		player2 = std::make_shared<AIPlayer>("Player 2", 1);
 	}
 	start_game();
-};
+}
 
 void BuildGame::start_game() {
-	Controller new_game{ render_object,input_object,player1,player2,no_of_players }; // build controller object passing all 4 object pointers, need new controller constructor
-	new_game.start_game(); // call function in controller to start playing game - play game??
-};
+	//Build new Controller object with pointers to player, render and input objects
+	Controller new_game{ render_object,input_object,player1,player2,no_of_players }; 
+	new_game.start_game(); 
+}
 
-BuildGame::~BuildGame() {};
+BuildGame::~BuildGame() {
+}

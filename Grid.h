@@ -1,5 +1,4 @@
-#ifndef GRID_H
-#define GRID_H
+#pragma once
 #include <vector>
 #include <string>
 
@@ -18,4 +17,3 @@ public:
 
 };
 
-#endif // GRID_H

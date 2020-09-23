@@ -18,10 +18,10 @@ class BuildGame
 
 public:
 	BuildGame();
+	void print_header1();
 	int get_no_of_players();
 	void create_game();
 	void start_game();
-
 	~BuildGame();
 };
 

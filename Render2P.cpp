@@ -13,26 +13,6 @@ Render2P::Render2P() {
 
 }
 
-/*
-std::string Render2P::request_name(Player* player) {
-	//Prompt for and return player name
-	std::cout << player->display_name() << " - Enter your name (2P)" << std::endl;
-	std::string name{};
-	std::getline(std::cin, name);
-
-	return name;
-}
-
-
-void Render2P::number_of_players() {
-	//Prompt for number of players (1 or 2) MOVING TO STARTGAME
-
-	std::cout << "Enter how many players:" << std::endl;
-	std::cout << "1 - Play against the computer" << std::endl;
-	std::cout << "2 - Play against a friend" << std::endl;
-}
-*/
-
 void Render2P::request_cell(std::string name) {
 	//requests a cell 	
 	std::cout << name << ", please enter a blank cell, for example, A1: ";
@@ -115,26 +95,6 @@ void Render2P::playing(std::string name) {
 void Render2P::draw() {
 	std::cout << "It's a draw!!" << std::endl;
 }
-/*
-bool Render2P::play_again() {
-	//Prompt to play another game
-	std::cout << "Would you like to play again? Y / N" << std::endl;
-	std::string input{};
-	std::cin >> input;
-	std::string option = input.substr(0, 1);
-
-	std::string flush{}; // To clear cin before game restarts
-	std::getline(std::cin, flush); // To clear cin before game restarts
-
-	if (option == "Y" || option == "y") {
-		system("cls");
-		return true;
-	}
-	else {
-		return false;
-	}
-}
-*/
 
 Render2P::~Render2P()
 {

@@ -6,7 +6,6 @@ class Input2P :
 public:
 	Input2P();
 	virtual std::string request_name(std::string name) override;
-	//int number_of_players();
 	virtual void get_cell(int XorO, Grid& grid) override;
 	virtual bool play_again() override;
 	~Input2P();

@@ -11,7 +11,6 @@ class AIPlayer :
 public:
 	AIPlayer();
 	AIPlayer(std::string name, int XorO);
-
 	int  get_XorO() override;
 	std::string display_name() override;
 	virtual void update_name(std::string new_name) override;
