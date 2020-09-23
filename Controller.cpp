@@ -11,57 +11,28 @@
 #include <vector>
 #include <memory>
 
-
-Controller::Controller() {};
+Controller::Controller() {
+}
 
 Controller::Controller(std::shared_ptr<I_Render> render_object, std::shared_ptr<I_Input> input_object, std::shared_ptr<I_Player> player1, std::shared_ptr<I_Player> player2, int player_number):
-render_object(render_object),input_object(input_object),player1(player1),player2(player2), player_number(player_number){};
-
-/*
-void Controller::set_player_number(int number) {
-	//Sets number of players in the game
-	player_number = number;
-};
-*/
+render_object(render_object),input_object(input_object),player1(player1),player2(player2), player_number(player_number){
+}
 
 void Controller::start_game() {
-	/*
-	//Initial settings for the game
-	//Choose number of players 
-	render_object.print_header();
-	render_object.number_of_players();
-	set_player_number(input_object.number_of_players());
-
-
-	//Create player 1 and get name
-	std::shared_ptr<I_Player> player1 = std::make_shared<UserPlayer>("Player 1", -1);
-	player1->update_name(input_object.request_name(player1->display_name()));
-
-
-	//Create player 2 as either UserPlayer or AIPlayer and get name
-	std::shared_ptr<I_Player> player2;
-	if (player_number == 2) {
-		player2 = std::make_shared<UserPlayer>("Player 2", 1);
-		player2->update_name(input_object.request_name((*player2).display_name()));
-	}
-	else {
-		player2 = std::make_shared<AIPlayer>("AI Player 2", 1);
-	}
-	*/
+	// Get player names
 	if (player_number == 2) {
 		player1->update_name(input_object->request_name(player1->display_name()));
 		player2->update_name(input_object->request_name((*player2).display_name()));
 	}
 	else {
 		player1->update_name(input_object->request_name(player1->display_name()));
+		player2->update_name(input_object->random_name(player1->display_name()));
 	}
 
-	//play the game
-	//play_game(player1, player2);
+	//Play the game
 	play_game();
-};
+}
 
-//void Controller::play_game(std::shared_ptr<I_Player> player1, std::shared_ptr<I_Player> player2) {
 void Controller::play_game(){
 	//Create and print new grid
 	game_board.reset_grid();
@@ -86,7 +57,6 @@ void Controller::play_game(){
 			is_game_won = true;
 			render_object->congrats(player1->display_name());
 			if (play_again_check()) {
-				//play_game(player1,player2);
 				play_game();
 			};
 		}
@@ -123,4 +93,3 @@ bool Controller::play_again_check() {
 Controller::~Controller()
 {
 }
-

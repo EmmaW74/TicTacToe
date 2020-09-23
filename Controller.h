@@ -1,5 +1,4 @@
-#ifndef CONTROLLER_H
-#define CONTROLLER_H
+#pragma once
 #include "Grid.h"
 #include "Render.h"
 #include "Input.h"
@@ -23,15 +22,11 @@ public:
 	Controller();
 	Controller(std::shared_ptr<I_Render> render_object, std::shared_ptr<I_Input> input_object, std::shared_ptr<I_Player> player1, std::shared_ptr<I_Player> player2,int player_number);
 	~Controller();
-
 	void start_game();
-	//void play_game(std::shared_ptr<I_Player> player1, std::shared_ptr<I_Player> player2);
 	void play_game();
 	void take_a_turn(Player* player);
 	void take_a_random_turn(Player* player);
 	void update_turns_taken();
-	//void set_player_number(int number);
 	bool play_again_check();
 };
 
-#endif // CONTROLLER_H

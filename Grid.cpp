@@ -9,10 +9,9 @@
 #include <vector>
 #include <string>
 
-
 std::vector<std::pair<std::string, int>> Grid::get_grid() {
 	return grid_vec;
-};
+}
 
 void Grid::reset_grid() {
 	//Sets all values on the grid to 0
@@ -56,9 +55,7 @@ void Grid::random_turn(int X_or_O) {
 			}
 		}
 	} while (played == 0);
-
 }
-
 
 bool Grid::update_grid(int X_or_O, std::string turn) {
 
@@ -77,12 +74,7 @@ bool Grid::update_grid(int X_or_O, std::string turn) {
 		}
 	}
 	return false;
-
 }
-
-
-
-
 
 bool Grid::check_for_win(int X_or_O) {
 
@@ -134,7 +126,6 @@ bool Grid::check_for_win(int X_or_O) {
 		}
 	}
 
-
 	//Check diagonal from A1
 	it = grid_vec.begin();
 	result = 0;
@@ -179,15 +170,11 @@ bool Grid::check_for_win(int X_or_O) {
 		if (result == 3) {
 			return true;
 		}
-
 	}
-
-
+	   
 	return false;
 }
-
 
 Grid::~Grid()
 {
 }
-
