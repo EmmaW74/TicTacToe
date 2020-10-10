@@ -1,7 +1,6 @@
 #pragma once
 #include "I_Render.h"
-#include <Grid.h>
-#include <Player.h>
+#include "Grid.h"
 class Render2P :
 	public I_Render
 {
@@ -15,6 +14,6 @@ public:
 	virtual void congrats(std::string name) override;
 	virtual void playing(std::string name) override;
 	virtual void draw() override;
-	~Render2P();
+	~Render2P() = default;
 };
 

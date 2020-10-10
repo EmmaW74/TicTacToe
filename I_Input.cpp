@@ -7,7 +7,7 @@
 I_Input::I_Input() {
 }
 
-std::string I_Input::random_name(std::string name) {
+std::string I_Input::random_name(std::string name) const {
 	//Generate random name and check it's different to Player 1's name
 	std::string new_name{name};
 	std::vector<std::string> name_list{ "Fred","James","Harry","George","Henry","Lucy","Jane","Jill","Joanne","Clare" };
@@ -22,5 +22,4 @@ std::string I_Input::random_name(std::string name) {
 	return new_name;
 }
 
-I_Input::~I_Input() {
-}
+I_Input::~I_Input() {};

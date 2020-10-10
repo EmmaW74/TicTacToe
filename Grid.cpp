@@ -1,7 +1,6 @@
-#include <Controller.h>
-#include <Grid.h>
-#include <I_Render.h>
-#include <Player.h>
+  #include "Controller.h"
+#include "Grid.h"
+#include "I_Render.h"
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
@@ -9,7 +8,7 @@
 #include <vector>
 #include <string>
 
-std::vector<std::pair<std::string, int>> Grid::get_grid() {
+std::vector<std::pair<std::string, int>> Grid::get_grid() const {
 	return grid_vec;
 }
 
@@ -76,7 +75,7 @@ bool Grid::update_grid(int X_or_O, std::string turn) {
 	return false;
 }
 
-bool Grid::check_for_win(int X_or_O) {
+bool Grid::check_for_win(int X_or_O) const {
 
 	int result = 0;
 	auto it = grid_vec.begin();
@@ -175,6 +174,4 @@ bool Grid::check_for_win(int X_or_O) {
 	return false;
 }
 
-Grid::~Grid()
-{
-}
+

@@ -2,11 +2,12 @@
 #include <iostream>
 #include <regex>
 #include "Windows.h"
+#include "Token_enum.h"
 
 Input::Input() {
 }
 
-std::string Input::request_name(std::string name) {
+std::string Input::request_name(std::string name) const {
 	//Prompt for and return player name
 	std::cout << name << " - Enter your name" << std::endl;
 	std::string new_name{};
@@ -14,7 +15,7 @@ std::string Input::request_name(std::string name) {
 	return new_name;
 }
 
-std::string Input::random_name(std::string name) {
+std::string Input::random_name(std::string name) const {
 	//Generate random name and check it's different to Player 1's name
 	std::string new_name{ name };
 	std::vector<std::string> name_list{ "Fred","James","Harry","George","Henry","Lucy","Jane","Jill","Joanne","Clare" };
@@ -28,7 +29,7 @@ std::string Input::random_name(std::string name) {
 	return new_name;
 }
 
-void Input::get_cell(int XorO, Grid& grid) {
+void Input::get_cell(Token XorO, Grid& grid) {
 	//Gets cell and updates the grid
 	int valid = 0;
 	do {
@@ -39,7 +40,7 @@ void Input::get_cell(int XorO, Grid& grid) {
 		std::regex check("[ABC][123]");
 
 		if (std::regex_match(turn, check)) {
-			if (grid.update_grid(XorO, turn)) {
+			if (grid.update_grid(static_cast<int>(XorO), turn)) {
 				valid = 1;
 			}
 			else {
@@ -52,7 +53,7 @@ void Input::get_cell(int XorO, Grid& grid) {
 	} while (valid == 0);
 }
 
-bool Input::play_again() {
+bool Input::play_again() const {
 	//Prompt to play another game
 	std::cout << "Would you like to play again? Y / N" << std::endl;
 	std::string input{};
@@ -71,5 +72,4 @@ bool Input::play_again() {
 	}
 }
 
-Input::~Input() {
-}
+

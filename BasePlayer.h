@@ -1,24 +1,19 @@
 #pragma once
-
-#include "Input.h"
-#include "Grid.h"
-#include "Render.h"
-
-#include<string>
-#include<iostream>
-
-class I_Player
+#include "I_Player.h"
+#include "Token_enum.h"
+class BasePlayer :
+	public I_Player
 {
-	//std::string name;
-	//int XorO;
+	std::string name;
+	Token XorO;
 
 public:
-	I_Player();
-	//I_Player(std::string name, int XorO);
+	BasePlayer();
+	BasePlayer(std::string name, Token XorO);
 	virtual std::string display_name() const = 0;
 	virtual int get_XorO() const = 0;
 	virtual void update_name(std::string new_name) = 0;
 	virtual void take_turn(Grid &game_board, std::shared_ptr <I_Input> &input_object, std::shared_ptr <I_Render> &render_object) = 0;
-	virtual ~I_Player() =0;
+	~BasePlayer() = default;
 };
 

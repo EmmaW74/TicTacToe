@@ -2,7 +2,6 @@
 #include "Grid.h"
 #include "Render.h"
 #include "Input.h"
-#include "Player.h"
 #include "I_Player.h"
 
 class Controller
@@ -20,12 +19,10 @@ class Controller
 public:
 	
 	Controller();
-	Controller(std::shared_ptr<I_Render> render_object, std::shared_ptr<I_Input> input_object, std::shared_ptr<I_Player> player1, std::shared_ptr<I_Player> player2,int player_number);
-	~Controller();
+	Controller(std::shared_ptr<I_Render> &render_object, std::shared_ptr<I_Input> &input_object, std::shared_ptr<I_Player> &player1, std::shared_ptr<I_Player> &player2,int player_number);
+	~Controller() = default;
 	void start_game();
 	void play_game();
-	void take_a_turn(Player* player);
-	void take_a_random_turn(Player* player);
 	void update_turns_taken();
 	bool play_again_check();
 };

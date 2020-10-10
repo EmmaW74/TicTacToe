@@ -4,9 +4,8 @@
 I_Render::I_Render() {
 }
 
-void I_Render::playing(std::string name) {
+void I_Render::playing(std::string name) const {
 	std::cout << name << " is taking their turn..." << std::endl;
 }
+I_Render::~I_Render() {};
 
-I_Render::~I_Render() {
-}

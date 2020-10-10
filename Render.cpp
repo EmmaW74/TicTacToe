@@ -1,7 +1,6 @@
 #include "Render.h"
 #include "Grid.h"
 #include "Controller.h"
-#include "Player.h"
 #include <iostream>
 #include <stdlib.h>
 #include <regex>
@@ -13,12 +12,12 @@ Render::Render() {
 
 }
 
-void Render::request_cell(std::string name) {
+void Render::request_cell(std::string name) const {
 	//requests a cell 	
 	std::cout << name << ", please enter a blank cell, for example, A1: ";
 }
 
-char Render::showXorO(int X_or_O) {
+char Render::showXorO(int X_or_O) const {
 	//Display array value as X, O or blank (for grid display)
 	if (X_or_O == -1) {
 		return 'X';
@@ -31,14 +30,14 @@ char Render::showXorO(int X_or_O) {
 	}
 }
 
-void Render::print_header() {
+void Render::print_header() const {
 
 	std::cout << std::setw(16) << " " << "  ******************" << std::endl << std::endl;
 	std::cout << std::setw(16) << " " << "  *   TIC TAC TOE  *" << std::endl << std::endl;
 	std::cout << std::setw(16) << " " << "  ******************" << std::endl << std::endl;
 }
 
-void Render::print_grid(Grid& game_board) {
+void Render::print_grid(Grid& game_board) const {
 	//clear screen and draw latest grid state
 	system("cls");
 	print_header();
@@ -82,17 +81,19 @@ void Render::print_grid(Grid& game_board) {
 	}
 }
 
-void Render::congrats(std::string name) {
+void Render::congrats(std::string name) const {
 	std::cout << "Congratulations " << name << std::endl;
 	std::cout << "You win!!" << std::endl;
 }
 
-void Render::draw() {
+void Render::playing(std::string name) const {
+	std::cout << name << " is taking their turn..." << std::endl;
+}
+
+void Render::draw() const {
 	std::cout << "It's a draw!!" << std::endl;
 }
 
-Render::~Render()
-{
-} 
+
 
 

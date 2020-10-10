@@ -27,9 +27,6 @@
     <ClCompile Include="Grid.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="I_Player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -48,13 +45,10 @@
     <ClCompile Include="I_Render.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Render2P.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="I_Input.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Input2P.cpp">
+    <ClCompile Include="BasePlayer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -66,9 +60,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Grid.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="I_Player.h">
@@ -89,13 +80,13 @@
     <ClInclude Include="I_Render.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Render2P.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="I_Input.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Input2P.h">
+    <ClInclude Include="BasePlayer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Token_enum.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

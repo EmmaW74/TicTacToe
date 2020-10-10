@@ -6,19 +6,17 @@
 #include "Input.h"
 #include "Controller.h"
 #include "Input.h"
-#include "Player.h"
 #include "windows.h"
 #include <vector>
 #include <memory>
 
-Controller::Controller() {
-}
+Controller::Controller() {};
 
-Controller::Controller(std::shared_ptr<I_Render> render_object, std::shared_ptr<I_Input> input_object, std::shared_ptr<I_Player> player1, std::shared_ptr<I_Player> player2, int player_number):
+Controller::Controller(std::shared_ptr<I_Render> &render_object, std::shared_ptr<I_Input> &input_object, std::shared_ptr<I_Player> &player1, std::shared_ptr<I_Player> &player2, int player_number):
 render_object(render_object),input_object(input_object),player1(player1),player2(player2), player_number(player_number){
 }
 
-void Controller::start_game() {
+void Controller::start_game(){
 	// Get player names
 	if (player_number == 2) {
 		player1->update_name(input_object->request_name(player1->display_name()));
@@ -30,10 +28,10 @@ void Controller::start_game() {
 	}
 
 	//Play the game
-	play_game();
+play_game();
 }
 
-void Controller::play_game(){
+void Controller::play_game() {
 	//Create and print new grid
 	game_board.reset_grid();
 	render_object->print_grid(game_board);
@@ -88,8 +86,4 @@ bool Controller::play_again_check() {
 	else {
 		return false;
 	}
-}
-
-Controller::~Controller()
-{
 }
