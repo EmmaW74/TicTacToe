@@ -7,7 +7,7 @@
 Input::Input() {
 }
 
-std::string Input::request_name(std::string name) const {
+std::string Input::request_name(const std::string &name) const {
 	//Prompt for and return player name
 	std::cout << name << " - Enter your name" << std::endl;
 	std::string new_name{};
@@ -15,7 +15,7 @@ std::string Input::request_name(std::string name) const {
 	return new_name;
 }
 
-std::string Input::random_name(std::string name) const {
+std::string Input::random_name(const std::string &name) const {
 	//Generate random name and check it's different to Player 1's name
 	std::string new_name{ name };
 	std::vector<std::string> name_list{ "Fred","James","Harry","George","Henry","Lucy","Jane","Jill","Joanne","Clare" };
@@ -29,28 +29,14 @@ std::string Input::random_name(std::string name) const {
 	return new_name;
 }
 
-void Input::get_cell(Token XorO, Grid& grid) {
-	//Gets cell and updates the grid
-	int valid = 0;
-	do {
-		std::string input;
-		std::cin >> input;
-		std::string turn = input.substr(0, 2);
-		turn.at(0) = static_cast<char>(toupper(turn.at(0)));
-		std::regex check("[ABC][123]");
 
-		if (std::regex_match(turn, check)) {
-			if (grid.update_grid(static_cast<int>(XorO), turn)) {
-				valid = 1;
-			}
-			else {
-				std::cout << "Please enter a blank cell: " << std::endl;
-			}
-		}
-		else {
-			std::cout << "Please enter a valid cell, for example, A1: " << std::endl;
-		}
-	} while (valid == 0);
+std::string Input::get_cell() const {
+	//Get cell input and return it
+	std::string input;
+	std::cin >> input;
+	std::string turn = input.substr(0, 2);
+	turn.at(0) = static_cast<char>(toupper(turn.at(0)));
+	return turn;
 }
 
 bool Input::play_again() const {

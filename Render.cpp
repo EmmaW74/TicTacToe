@@ -12,12 +12,27 @@ Render::Render() {
 
 }
 
-void Render::request_cell(std::string name) const {
+void Render::request_cell(const std::string& name) const {
 	//requests a cell 	
 	std::cout << name << ", please enter a blank cell, for example, A1: ";
 }
 
-char Render::showXorO(int X_or_O) const {
+void Render::cell_taken() const {
+	//advises cell is taken 	
+	std::cout << "That cell is taken, please enter a blank cell: ";
+}
+
+void Render::cell_invalid() const {
+	//advises cell is invalid 	
+	std::cout << "That is not a valid cell. Please try again: ";
+}
+
+void Render::something_went_wrong() const {
+	//error if grid didn't update 	
+	std::cout << "Oops something went wrong. Please try again: ";
+}
+
+char Render::showXorO(const int X_or_O) const {
 	//Display array value as X, O or blank (for grid display)
 	if (X_or_O == -1) {
 		return 'X';
@@ -37,7 +52,7 @@ void Render::print_header() const {
 	std::cout << std::setw(16) << " " << "  ******************" << std::endl << std::endl;
 }
 
-void Render::print_grid(Grid& game_board) const {
+void Render::print_grid(const Grid& game_board) const {
 	//clear screen and draw latest grid state
 	system("cls");
 	print_header();
@@ -81,12 +96,12 @@ void Render::print_grid(Grid& game_board) const {
 	}
 }
 
-void Render::congrats(std::string name) const {
+void Render::congrats(const std::string& name) const {
 	std::cout << "Congratulations " << name << std::endl;
 	std::cout << "You win!!" << std::endl;
 }
 
-void Render::playing(std::string name) const {
+void Render::playing(const std::string& name) const {
 	std::cout << name << " is taking their turn..." << std::endl;
 }
 

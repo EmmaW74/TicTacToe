@@ -8,6 +8,7 @@
 
 class BuildGame
 {
+private:
 	int no_of_players = 0;
 	std::shared_ptr<I_Render> new_render_object{};
 	std::shared_ptr<I_Input> new_input_object{};

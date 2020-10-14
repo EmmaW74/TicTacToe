@@ -7,6 +7,7 @@
 #include <utility>
 #include <vector>
 #include <string>
+#include <regex>
 
 std::vector<std::pair<std::string, int>> Grid::get_grid() const {
 	return grid_vec;
@@ -35,48 +36,49 @@ void Grid::reset_grid() {
 	}
 }
 
-void Grid::random_turn(int X_or_O) {
-	//Generate random row and column values and update that cell with token value (1 or -1)
-	int played = 0;
-	srand(time(0));
 
-	do {
-		auto it = &grid_vec.at(rand() % grid_vec.size());
-		std::string random = it->first;
 
-		for (auto it2 = grid_vec.begin(); it2 != grid_vec.end(); ++it2)
+
+
+int Grid::check_grid(const std::string &turn) {
+	//Checks if turn is valid - returns 0 for valid, 1 for cell taken, 2 for invalid cell reference
+	std::regex check("[ABC][123]");
+	if (std::regex_match(turn, check)) {
+		for (auto it = grid_vec.begin(); it != grid_vec.end(); ++it)
 		{
-			if (it2->first == random) {
-				if (it2->second == 0) {
-					it->second = X_or_O;
-					played++;
+			if (it->first == turn)
+			{
+				if (it->second == 0) {
+					return 0;
+				}
+				else {
+					return 1;
 				}
 			}
 		}
-	} while (played == 0);
+
+	}
+	else {
+		return 2;
+	} 
+	return 2;
 }
 
-bool Grid::update_grid(int X_or_O, std::string turn) {
-
+bool Grid::update_grid(const Token &XorO, const std::string &turn) {
+	//Updates grid with X or O and returns true if successful
 	for (auto it = grid_vec.begin(); it != grid_vec.end(); ++it)
 	{
 		if (it->first == turn)
 		{
-			if (it->second == 0) {
-				it->second = X_or_O;
-				return true;
-			}
-			else {
-				std::cout << "That cell is taken. ";
-				return false;
-			}
+			it->second = static_cast<int>(XorO);
+			return true;
 		}
 	}
 	return false;
 }
 
-bool Grid::check_for_win(int X_or_O) const {
-
+bool Grid::check_for_win(const int X_or_O) const {
+	//Check each row, column and diagonal for a row of 3
 	int result = 0;
 	auto it = grid_vec.begin();
 	//check rows        

@@ -6,14 +6,13 @@
 
 class Input :
 	public I_Input
-
 {
 
 public:
 	Input();
-	virtual std::string request_name(std::string name) const override;
-	virtual std::string random_name(std::string name) const override;
-	virtual void get_cell(Token XorO, Grid& grid) override;
+	virtual std::string get_cell() const override;
+	virtual std::string request_name(const std::string &name) const override;
+	virtual std::string random_name(const std::string &name) const override;
 	virtual bool play_again() const override;
 	~Input() = default;
 };

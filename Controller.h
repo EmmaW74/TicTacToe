@@ -6,6 +6,7 @@
 
 class Controller
 {
+private:
 	bool player1_turn = true;
 	bool is_game_won = false;
 	Grid game_board{};
@@ -19,7 +20,7 @@ class Controller
 public:
 	
 	Controller();
-	Controller(std::shared_ptr<I_Render> &render_object, std::shared_ptr<I_Input> &input_object, std::shared_ptr<I_Player> &player1, std::shared_ptr<I_Player> &player2,int player_number);
+	Controller(const std::shared_ptr<I_Render> &render_object, const std::shared_ptr<I_Input> &input_object, const std::shared_ptr<I_Player> &player1, const std::shared_ptr<I_Player> &player2, const int player_number);
 	~Controller() = default;
 	void start_game();
 	void play_game();

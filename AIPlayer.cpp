@@ -5,16 +5,13 @@
 #include "Token_enum.h"
 #include<string>
 #include <iostream>
-
-AIPlayer::AIPlayer() :
-	name{ "Player" }, XorO{ Token::NONE }{
-}
+#include <ctime>
 
 AIPlayer::AIPlayer(std::string name, Token XorO) :
 	name{ name }, XorO{ XorO } {
 }
 
-void AIPlayer::update_name(std::string new_name) {
+void AIPlayer::update_name(const std::string &new_name) {
 	name = new_name;
 }
 
@@ -26,9 +23,21 @@ std::string AIPlayer::display_name() const {
 	return name;
 }
 
-void AIPlayer::take_turn(Grid &game_board, std::shared_ptr <I_Input> &input_object, std::shared_ptr <I_Render> &render_object) {
-	//Computer takes a random turn
+void AIPlayer::take_turn(Grid& game_board, const std::shared_ptr <I_Input>& input_object, const std::shared_ptr <I_Render>& render_object) {
+	//calls methods to generate random turn, validate cell and update grid
 	render_object->playing(name);
 	Sleep(3000);
-	game_board.random_turn(1);
+	int turn_complete = 0;
+	do {
+		srand(time(0));
+		auto it = (game_board.get_grid()).at(rand() % (game_board.get_grid()).size());
+		std::string turn = it.first;
+		int valid = game_board.check_grid(turn);
+		if (valid == 0) {
+			if (game_board.update_grid(XorO, turn)) {
+				turn_complete++;
+			}
+		}
+	} while (turn_complete == 0);
+
 }

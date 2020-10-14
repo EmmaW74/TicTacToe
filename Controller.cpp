@@ -12,7 +12,7 @@
 
 Controller::Controller() {};
 
-Controller::Controller(std::shared_ptr<I_Render> &render_object, std::shared_ptr<I_Input> &input_object, std::shared_ptr<I_Player> &player1, std::shared_ptr<I_Player> &player2, int player_number):
+Controller::Controller(const std::shared_ptr<I_Render> &render_object, const std::shared_ptr<I_Input> &input_object, const std::shared_ptr<I_Player> &player1, const std::shared_ptr<I_Player> &player2, const int player_number):
 render_object(render_object),input_object(input_object),player1(player1),player2(player2), player_number(player_number){
 }
 
