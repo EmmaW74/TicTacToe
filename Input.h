@@ -4,6 +4,7 @@
 #include "Token_enum.h"
 #include <memory>
 
+//Class to implement I_Input methods for a console based game
 class Input :
 	public I_Input
 {

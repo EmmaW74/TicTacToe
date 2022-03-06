@@ -6,6 +6,7 @@
 #include "AIPlayer.h"
 #include "Controller.h"
 
+//Builds a game object with the required players plus rendering and input objects
 class BuildGame
 {
 private:

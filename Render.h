@@ -2,6 +2,7 @@
 #include "I_Render.h"
 #include "Grid.h"
 
+//Class to implement the I_Render methods for a console based game
 class Render :
 	public I_Render
 {

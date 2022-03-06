@@ -7,6 +7,7 @@
 #include<string>
 #include<iostream>
 
+//Virtual class to set out the methods that each player type must implement
 class I_Player
 {
 

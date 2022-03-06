@@ -1,6 +1,8 @@
 #pragma once
 #include "I_Player.h"
 #include "Token_enum.h"
+
+
 class BasePlayer :
 	public I_Player
 {

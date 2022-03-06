@@ -35,8 +35,8 @@ void Controller::play_game() {
 	//Create and print new grid
 	game_board.reset_grid();
 	render_object->print_grid(game_board);
+
 	//while game is in progress and max turns not yet taken, check who's turn it is then take the turn for that player
-	
 	while (!is_game_won) {
 		if (turns_taken >= max_turns) {
 			render_object->draw();

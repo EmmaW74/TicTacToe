@@ -2,6 +2,7 @@
 #include "Grid.h"
 #include "Token_enum.h"
 
+//Virtual class to set out the input methods that must be implemented
 class I_Input
 {
 

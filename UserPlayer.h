@@ -4,7 +4,7 @@
 #include "Token_enum.h"
 #include<string>
 
-
+//Player type for user
 class UserPlayer :
 	public BasePlayer
 {

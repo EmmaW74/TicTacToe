@@ -4,6 +4,7 @@
 #include "Input.h"
 #include "I_Player.h"
 
+//Manages the flow of the game
 class Controller
 {
 private:

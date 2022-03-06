@@ -2,6 +2,7 @@
 #include "Grid.h"
 #include <string>
 
+//Virtual class to set out the rendering methods that must be implemented
 class I_Render
 {
 

@@ -3,6 +3,8 @@
 #include "I_Input.h"
 #include "Token_enum.h"
 #include<string>
+
+//Player type to implement player methods for a computer player
 class AIPlayer :
 	public BasePlayer
 {
